@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "concurrently  npm i\" \"cd ./client && npm i\"",
+    "start": "concurrently \" nodemon server.js || node server.js\" \"cd ./client && npm start\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "concurrently": "^7.2.2",
+    "jsonwebtoken": "^8.5.1",
+    "react-bootstrap": "^2.4.0"
+  }
+}
