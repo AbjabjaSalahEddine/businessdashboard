@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import '../App.css'
-import DonutChart from '../components/Chart'
+import DonutChart from '../components/DonutChart'
+import TreeChart from '../components/TreeChart'
 import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router'
 
@@ -8,7 +9,7 @@ import { useNavigate } from 'react-router'
 const Dashboard = () => {
   const navigate = useNavigate()
   const [tobereturned,setTobereturned]=useState('')
-  var labels = ["Projects", "Holidays", "Missed", "Training", "Idle" , "xR non Available"];
+  
 
   useEffect(() => {
     if(!localStorage.getItem("token")){
@@ -16,15 +17,31 @@ const Dashboard = () => {
     }else{
       setTobereturned(<>
         <Navbar/>
-        <div style={{hight:"560px",width:"560px"}}>
-          <DonutChart  {... donutdata}></DonutChart>
+        <div className='chartsholder'>
+          <div className='chartholder'>
+            <DonutChart/>
+          </div>
+          <div className='chartholder' style={{backgroundColor:'red'}}>
+            
+          </div>
+          <div className='chartholder' style={{backgroundColor:'cyan'}}>
+
+          </div>
+          <div className='chartholder'>
+          <TreeChart/>
+          </div>
+          <div className='chartholder' style={{backgroundColor:'yellow'}}>
+            
+          </div>
+          <div className='chartholder' style={{backgroundColor:'orange'}}>
+            
+          </div>
         </div>
+        
         </>)
     }
   },[localStorage]);
   
-  var  series=[44, 22, 13, 33 , 80 , 45];
-  var donutdata={labels,series};
 
 
 

@@ -8,6 +8,7 @@ app.use(cors());
 
 
 app.use('/api/auth', require('./routes/auth'))
+app.use('/api/dashboard', require('./routes/upload'))
 
 
 const port = process.env.PORT || 5000 ;

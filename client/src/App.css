@@ -76,7 +76,7 @@ nav{
   justify-content: space-between;
   align-items: center;
   padding:5px 20px;
-  position: fixed absolute;
+  position: sticky ;
   top:0;
   left:0;
   width:100%;
@@ -85,16 +85,11 @@ nav{
   z-index: 100;
   
 }
-.logo{
-  
-}
 
 .Nav-Link{
   cursor: pointer;
 }
-.Nav-Link :hover{
-  
-}
+
 .links-wrapper{
   display: flex;
   width: 50%;
@@ -546,4 +541,19 @@ nav{
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+.chartsholder{
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+}
+
+.chartholder{
+ min-height: 300px;
+ min-width: 400px;
+}
+
+input[type=file]{
+  display: none;
 }
