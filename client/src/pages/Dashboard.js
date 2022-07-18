@@ -2,6 +2,8 @@ import React, { useState,useEffect } from 'react';
 import '../App.css'
 import DonutChart from '../components/DonutChart'
 import TreeChart from '../components/TreeChart'
+import LineChart from '../components/LineChart'
+import RadialChart from '../components/RadialChart'
 import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router'
 
@@ -21,8 +23,8 @@ const Dashboard = () => {
           <div className='chartholder'>
             <DonutChart/>
           </div>
-          <div className='chartholder' style={{backgroundColor:'red'}}>
-            
+          <div className='chartholder' >
+            <LineChart/>
           </div>
           <div className='chartholder' style={{backgroundColor:'cyan'}}>
 
@@ -30,8 +32,8 @@ const Dashboard = () => {
           <div className='chartholder'>
           <TreeChart/>
           </div>
-          <div className='chartholder' style={{backgroundColor:'yellow'}}>
-            
+          <div className='chartholder' >
+            <RadialChart/>
           </div>
           <div className='chartholder' style={{backgroundColor:'orange'}}>
             

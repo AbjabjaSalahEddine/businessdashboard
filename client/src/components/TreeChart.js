@@ -10,10 +10,13 @@ const TreeChart = () => {
   { x: 'Rabat',y: 499},
   {x: 'Velizy',y: 188},
   { x: 'PSA',y: 140 },
-  { x: 'O...',y: 5 }
+  { x: 'O...',y: 60 },
+  { x: '',y: 4 }
   ]}] ;
 
   var options ={
+    chart: {
+      offsetX: 8},
     title: {
       text: "Utilization by BU by week",
       align: 'center',
@@ -37,7 +40,7 @@ const TreeChart = () => {
     plotOptions: {
       treemap: {
         distributed: true,
-        enableShades: true
+        enableShades: false
       }
     },dataLabels: {
       enabled: true,
