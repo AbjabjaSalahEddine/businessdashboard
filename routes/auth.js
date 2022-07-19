@@ -23,9 +23,9 @@ router.post('/login',async (req, res) => {
                 res.status(200).json({ token });
             });
         } else {
-            res.status(404).send({msg: "Wrong Password"});
+            res.status(400).send({msg: "Wrong Password"});
         }
-    }else res.status(404).send({msg: "Wrong Email"});
+    }else res.status(400).send({msg: "Wrong Email"});
     
 
 })

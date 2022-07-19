@@ -9,6 +9,7 @@ app.use(cors());
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/dashboard', require('./routes/upload'))
+app.use('/api/project', require('./routes/project'))
 
 
 const port = process.env.PORT || 5000 ;
