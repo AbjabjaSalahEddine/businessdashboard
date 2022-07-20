@@ -7,18 +7,22 @@ import { useNavigate } from 'react-router'
 const Projects = () => {
   const navigate = useNavigate()
   const [tobereturned,setTobereturned]=useState('')
+  const [formdisplay,setFormdisplay]=useState(false)
 
 
   useEffect(() => {
+    console.log(formdisplay)
     if(!localStorage.getItem("token")){
       navigate('/Sign-in')
     }else{
       setTobereturned(<>
         <Navbar/>
         <p>MANAGE PROJECTS</p>
+        
+
         </>)
     }
-  },[localStorage]);
+  },[localStorage,formdisplay]);
   
 
 

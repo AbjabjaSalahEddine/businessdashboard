@@ -5,7 +5,6 @@ const router = express.Router();
 
 
 
-
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
       cb(null, './data')
@@ -19,7 +18,7 @@ const storage = multer.diskStorage({
 const upload = multer({storage:storage});
 
 
-router.post('/upload',upload.single('file') , (req, res) => {
+router.post('/upload',()=> upload.single('file') , (req, res) => {
     if (!req.file) {
       return res.status(400).json({ msg: 'No file uploaded' });
     } else{

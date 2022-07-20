@@ -50,7 +50,7 @@ const Navbar = () => {
                 <i style={{margin:'0px 10px'}} className="fa fa-caret-down"></i>
             </button>
             <div className="dropdown-content">
-                <label htmlFor="fu1" className={"Nav-Link "} >
+                <label htmlFor="fu1" className={"Nav-Linkk"} style={{width:'100%'}} >
                 <a style={{display:"flex" , alignItems:'center'}}>
                   <i className="fa fa-upload"></i><p style={{margin:'0px 10px'}}>Update Data</p>
                   <input id="fu1" type="file" name="file" accept=".csv" onChange={onInputChangeFile}/>
@@ -61,7 +61,7 @@ const Navbar = () => {
                 <NavLink to="/changepassword"  className={"Nav-Link"} style={{display:"flex" , alignItems:'center'}}>
                   <i className="fa fa-key"></i><p style={{margin:'0px 10px'}}>Change Password</p>
                 </NavLink>
-                <NavLink to="/Sign-in" onClick={logout} className={"Nav-Link"} style={{display:"flex" , alignItems:'center'}}>
+                <NavLink to="/Sign-in" onClick={logout} className={"Nav-Link"} style={{display:"flex" , alignItems:'center',width:'100%'}}>
                 <i className="fa fa-sign-out"></i><p style={{margin:'0px 10px'}}>LogOut</p>
                 </NavLink>
             </div>

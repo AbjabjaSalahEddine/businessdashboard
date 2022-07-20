@@ -15,7 +15,7 @@ const Changepassword = () => {
   const updatepassword= async ()=>{
      if(newpassword===verifpassword){
         await axios.put("http://localhost:5000/api/auth/updatepassword",
-      {newpassword: newpassword, password: password , tocken:localStorage.getItem("token")})
+      {newpassword: newpassword, password: password , token:localStorage.getItem("token") , id :Number(localStorage.getItem("id"))})
      .then(response=>{
       console.log(response.data)
          navigate('/Dashboard')
@@ -51,8 +51,8 @@ const Changepassword = () => {
         <form action="" onSubmit={e => handleSubmit(e)}>
             
             <input type="password"  onChange={(e)=> setPassword(e.target.value)}  placeholder='Old Password' />
-            <input type="password"  onChange={(e)=> setNewpassword(e.target.value)} className='form-control' placeholder='New Password'/>
-            <input type="password"  onChange={(e)=> setVerifpassword(e.target.value)} className='form-control' placeholder='Confirm Password'/>
+            <input type="password"  onChange={(e)=> setNewpassword(e.target.value)}  placeholder='New Password'/>
+            <input type="password"  onChange={(e)=> setVerifpassword(e.target.value)}  placeholder='Confirm Password'/>
             <button type="submit" className='btn btn-primary'style={{fontSize:"18",padding:'10px',width:'200px',alignSelf:'center'}}><strong className='learfont'>change</strong></button>
     
         </form>

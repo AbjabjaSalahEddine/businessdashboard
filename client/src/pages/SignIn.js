@@ -16,8 +16,9 @@ const SignIn = () => {
      .then(response=>{
       console.log(response.data)
           alert("Welcome! you'r logged in")
-          console.log(JSON.parse(JSON.stringify(response.data)).token)
-         localStorage.setItem("token",JSON.parse(JSON.stringify(response.data)).token) ;
+          console.log(response.data.token)
+         localStorage.setItem("token",response.data.token) ;
+         localStorage.setItem("id",response.data.id)
          navigate('/Dashboard')
          
      })
@@ -46,7 +47,7 @@ const SignIn = () => {
   </div>*/}
     <p className='learfont'>ACCESS TO BUSINESS DASHBOARD</p>
     <form action="" onSubmit={e => handleSubmit(e)}>
-        <input type="email"  onChange={(e)=> setEmail(e.target.value)} className='form-control' placeholder='Email'/>
+        <input type="email"  onChange={(e)=> setEmail(e.target.value)}  placeholder='Email'/>
         <input type="password"  onChange={(e)=> setPassword(e.target.value)}  placeholder='Password' />
         <button type="submit" className='btn btn-primary'style={{"margin":"0"}}><strong className='learfont'>Sign In</strong></button>
 

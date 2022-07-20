@@ -13,10 +13,12 @@ const Employees = () => {
     if(!localStorage.getItem("token")){
       navigate('/Sign-in')
     }else{
-      setTobereturned(<>
-        <Navbar/>
-        <p>MANAGE EMPLOYEES</p>
-        </>)
+      setTobereturned(
+<>
+  <Navbar/>
+  <p>MANAGE EMPLOYEES</p>
+</>
+        )
     }
   },[localStorage]);
   
