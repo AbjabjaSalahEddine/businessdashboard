@@ -10,6 +10,7 @@ const Navbar = () => {
   const navigate = useNavigate()
 
   const onInputChangeFile=e =>  {
+    console.log(e.target.files[0])
     var data=new FormData();
     data.append('file',e.target.files[0]);
     const url='//localhost:5000/api/dashboard/upload';
@@ -49,7 +50,7 @@ const Navbar = () => {
             <button className="dropbtn" >Admin 
                 <i style={{margin:'0px 10px'}} className="fa fa-caret-down"></i>
             </button>
-            <div className="dropdown-content">
+            <div className="dropdown-content" >
                 <label htmlFor="fu1" className={"Nav-Linkk"} style={{width:'100%'}} >
                 <a style={{display:"flex" , alignItems:'center'}}>
                   <i className="fa fa-upload"></i><p style={{margin:'0px 10px'}}>Update Data</p>

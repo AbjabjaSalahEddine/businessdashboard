@@ -13,6 +13,7 @@ const isLogged = require("../methodes/functions");
 //Login user
 router.post('/login',async (req, res) => {
     const { email, password } = req.body;
+    console.log(email)
     const rows = await pool.query('SELECT * FROM admins where email=$1',[email]);
     if(rows.rowCount===1){
         const isMatched = await bcrypt.compare(password, rows.rows[0].password)
@@ -45,10 +46,9 @@ router.post('/isLogged',async (req, res) => {
 router.put('/updatepassword',async (req, res) => {
     const { newpassword, password, token , id } = req.body;
     if(token) {
-        if(isLogged(id,token)){
+        if(isLogged.isLogged(id,token)){
             const rows = await pool.query('SELECT password FROM admins where admin_id=$1',[id]);
             const isMatched = await bcrypt.compare(password, rows.rows[0].password)
-            console.log(isMatched)
             if(isMatched){
                 
                 const hash = await bcrypt.hash(newpassword, 10);

@@ -30,6 +30,23 @@ router.post('/',async (req, res) => {
     }
 })
 
+router.put('/:projectid',async (req, res) => {
+    const project_id=req.params.projectid;
+    const { bu , wo_number , project_name ,requestor , wo_description , xr , id , token } = req.body;
+    if(isLogged(id,token)){
+        try { 
+            await pool.query(
+                'UPDATE projects SET bu=$1,wo_number=$2,project_name=$3,requestor=$4,wo_description=$5,xr=$6 WHERE project_id=$7',
+                [bu,wo_number , project_name ,requestor , wo_description , xr , project_id]);
+            res.status(200).json({msg : "project edited successfully!"});
+        } catch (error) {
+            console.log(error.message)
+        }
+    }else{
+        res.status(401).json({ msg :'You should be authentified!!' });
+    }
+})
+
 router.get('/:id',async (req,res)=>{
     const id=req.params.id
     try {

@@ -82,7 +82,6 @@ nav{
   width:100%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   background-color: #fff;
-  z-index: 100;
   
 }
 
@@ -275,7 +274,11 @@ nav{
   background-color:#ECEB98;
   padding: 3px 10px;
 }
-
+#f{
+  width:800px;
+  align-self: center;
+  padding:20px 0px;
+}
 .form{
   padding-top:200px;
   width:500px;
@@ -336,7 +339,6 @@ nav{
 .admin-banner{
   height:300px;
   width:100%;
-  /* background: url('./images//admin-bg.jfif') no-repeat ; */
   background-size: cover;
   margin-bottom: 2.5rem;
   color: #fff;
@@ -360,7 +362,11 @@ nav{
   max-width: 800px;
   margin: .8rem auto;
 }
-
+textarea{
+  outline: none;
+  padding: 1px 10px ;
+  border: 1px solid var(--dark-color);
+}
 .option:hover{
   background-color: #eff2f3
 }
@@ -376,7 +382,6 @@ nav{
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: #1C1D1F;
-    z-index: 100;
     border-bottom: 1px solid #3e4143
 }
 
@@ -519,7 +524,6 @@ nav{
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
 }
 
 /* Links inside the dropdown */
@@ -560,5 +564,77 @@ nav{
 input[type=file]{
   display: none;
 }
+input[type=text]{
+  padding: 10px;
+}
+input[type=search]{
+  width: 300px;
+  border: 1px solid var(--dark-color);
+
+  outline: none;
+
+  padding-left: 10px;
+}
+
+td{
+  padding: 20px;
+  text-align: center;
+
+}
 
 
+
+
+
+.m{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin: auto;
+  width:50%;
+  height: 70vh;
+  background-color: #fff;
+  box-shadow: 0 12px 28px 0 rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+.overlay{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  padding: 10px;
+}
+
+input[type=date] {
+  margin: 0px;
+  padding: 10px;
+  width: 80%;
+}
+
+#employeetable * {
+  font-size: 14px;
+}
+table
+{
+    table-layout: fixed;
+    max-width: 100%;
+}
