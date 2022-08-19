@@ -1,0 +1,29 @@
+{
+  "W2": {
+    "HC": 5,
+    "Projects": 44,
+    "Holidays": 28,
+    "Training": 113,
+    "Idle": 21,
+    "xR non Available": 57,
+    "Missed": -43
+  },
+  "W3": {
+    "HC": 5,
+    "Projects": 65,
+    "Holidays": 33,
+    "Training": 20,
+    "Idle": 0,
+    "xR non Available": 0,
+    "Missed": 102
+  },
+  "W52": {
+    "HC": 3,
+    "Projects": 0,
+    "Holidays": 0,
+    "Training": 0,
+    "Idle": 22,
+    "xR non Available": 0,
+    "Missed": 110
+  }
+}

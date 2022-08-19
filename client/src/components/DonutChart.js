@@ -90,7 +90,7 @@ const DonutChart = () => {
         <div style={{ position:'relative' , width:'99%', height:'99%' }} >
           
           <Chart options={options} series={series} type="donut"  />
-          <div style={{display:"flex",position:"absolute ",top:"83%",left:"60%",fontSize:"15px"}}>
+          <div style={{display:"flex",position:"absolute ",top:"85%",left:"60%",fontSize:"15px"}}>
                 <p style={{margin:"0px 10px"}}>Calender Weeks : </p>
                 <select onChange={(e)=> setWeek(e.target.value)} >
                 <option value="24">24</option>

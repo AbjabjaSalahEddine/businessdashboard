@@ -4,6 +4,7 @@ const pool = require("../db/db");
 const functions = require("../methodes/functions");
 
 const {isLogged}=functions
+const {readProjectsFromDB}=functions
 // get all projects
 router.get('/',async (req,res)=>{
     try {
@@ -21,6 +22,7 @@ router.post('/',async (req, res) => {
         try { 
             project_id = await pool.query('INSERT INTO projects(bu,wo_number,project_name,requestor,wo_description,xr) VALUES($1,$2,$3,$4,$5,$6) returning project_id',
             [bu,wo_number , project_name ,requestor , wo_description , xr]);
+            readProjectsFromDB()
             res.status(200).json({msg : "project added successfully!" , project_id: project_id.rows[0].project_id});
         } catch (error) {
             console.log(error.message)
@@ -38,6 +40,7 @@ router.put('/:projectid',async (req, res) => {
             await pool.query(
                 'UPDATE projects SET bu=$1,wo_number=$2,project_name=$3,requestor=$4,wo_description=$5,xr=$6 WHERE project_id=$7',
                 [bu,wo_number , project_name ,requestor , wo_description , xr , project_id]);
+            readProjectsFromDB()
             res.status(200).json({msg : "project edited successfully!"});
         } catch (error) {
             console.log(error.message)
@@ -68,6 +71,7 @@ router.delete('/:id',async (req,res)=>{
                 res.status(400).json({msg : "No Such Project"});
             }else{
                 await pool.query('DELETE FROM projects WHERE project_id=$1',[p_id]);
+                readProjectsFromDB()
                 res.status(200).json({msg : "project deleted successfully!"});
             }
             

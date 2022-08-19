@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router'
+import environement from '../env.js'
 import axios from "axios";
 
 
@@ -25,7 +26,7 @@ const EditEmployeeModal = ({ open, onClose , employee}) => {
   
   const editEmployee= async ()=>{
     
-    await axios.put("http://localhost:5000/api/employee/"+employee.emp_id, { id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), drts_full_name,drts_id,system_id,system_login,position,reports_to,integration_d,exit_d,birth_d,cin,phone})
+    await axios.put(environement.hostip+"/api/employee/"+employee.emp_id, { id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), drts_full_name,drts_id,system_id,system_login,position,reports_to,integration_d,exit_d,birth_d,cin,phone})
       .then(response=>{
           console.log(response.data)
           

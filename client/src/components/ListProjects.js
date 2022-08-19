@@ -3,6 +3,7 @@ import '../App.css'
 import React, { useEffect, useState } from "react";
 import AddProjectModal from "./AddProjectModal";
 import EditProjectModal from './EditProjectModal'
+import environement from '../env.js'
 
 const ListProjects = () => {
     const [projects, setProjects] = useState([]);
@@ -19,7 +20,7 @@ const ListProjects = () => {
   
     const getProjects = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/project");
+        const response = await fetch(environement.hostip+"/api/project");
         const jsonData = await response.json();
         setData(jsonData)
         setProjects(jsonData);
@@ -32,7 +33,7 @@ const ListProjects = () => {
     const deleteProject = async (project_id) => {
       let id=Number(localStorage.getItem("id"))
       let token=localStorage.getItem("token")
-      axios.delete("http://localhost:5000/api/project/"+Number(project_id),{ data: { id:id,token:token}})
+      axios.delete(environement.hostip+"/api/project/"+Number(project_id),{ data: { id:id,token:token}})
     .then(response=>{
         console.log(id)
         

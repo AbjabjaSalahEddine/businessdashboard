@@ -1,0 +1,401 @@
+{
+  "January": {
+    "W52": [],
+    "W1": [],
+    "W2": [],
+    "W3": []
+  },
+  "February": {
+    "W4": [],
+    "W5": [],
+    "W6": [
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 275478,
+        "WK_ENDING": 44605,
+        "myWeekNumber": 6,
+        "AdjWeek": 44605,
+        "textbox72": 6,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 35
+      },
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 275478,
+        "WK_ENDING": 44605,
+        "myWeekNumber": 6,
+        "AdjWeek": 44605,
+        "textbox72": 6,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 35
+      }
+    ],
+    "W7": [
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 983468,
+        "WK_ENDING": 44612,
+        "myWeekNumber": 7,
+        "AdjWeek": 44612,
+        "textbox72": 7,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 44
+      },
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 983468,
+        "WK_ENDING": 44612,
+        "myWeekNumber": 7,
+        "AdjWeek": 44612,
+        "textbox72": 7,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 44
+      }
+    ]
+  },
+  "March": {
+    "W8": [],
+    "W9": [
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 538879,
+        "WK_ENDING": 44626,
+        "myWeekNumber": 9,
+        "AdjWeek": 44626,
+        "textbox72": 9,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 44
+      },
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 538879,
+        "WK_ENDING": 44626,
+        "myWeekNumber": 9,
+        "AdjWeek": 44626,
+        "textbox72": 9,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 44
+      }
+    ],
+    "W10": [
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 156599,
+        "WK_ENDING": 44633,
+        "myWeekNumber": 10,
+        "AdjWeek": 44633,
+        "textbox72": 10,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 44
+      },
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 156599,
+        "WK_ENDING": 44633,
+        "myWeekNumber": 10,
+        "AdjWeek": 44633,
+        "textbox72": 10,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 44
+      }
+    ],
+    "W11": [],
+    "W12": []
+  },
+  "April": {
+    "W13": [],
+    "W14": [
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 777875.8,
+        "WK_ENDING": 44633,
+        "myWeekNumber": 14,
+        "AdjWeek": 44633,
+        "textbox72": 14,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 34.1
+      },
+      {
+        "WO_number": "7645326>Bf",
+        "Dr_Number": 822334.7,
+        "WK_ENDING": 44626,
+        "myWeekNumber": 14.9277777777778,
+        "AdjWeek": 44626,
+        "textbox72": 14.9277777777778,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 33.2
+      },
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 777875.8,
+        "WK_ENDING": 44633,
+        "myWeekNumber": 14,
+        "AdjWeek": 44633,
+        "textbox72": 14,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 34.1
+      },
+      {
+        "WO_number": "7645326>Bf",
+        "Dr_Number": 822334.7,
+        "WK_ENDING": 44626,
+        "myWeekNumber": 14.9277777777778,
+        "AdjWeek": 44626,
+        "textbox72": 14.9277777777778,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 33.2
+      }
+    ],
+    "W15": [],
+    "W16": []
+  },
+  "May": {
+    "W17": [
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 858012.140659341,
+        "WK_ENDING": 44626,
+        "myWeekNumber": 17.2777777777778,
+        "AdjWeek": 44626,
+        "textbox72": 17.2777777777778,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 30.5
+      },
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 858012.140659341,
+        "WK_ENDING": 44626,
+        "myWeekNumber": 17.2777777777778,
+        "AdjWeek": 44626,
+        "textbox72": 17.2777777777778,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 30.5
+      }
+    ],
+    "W18": [],
+    "W19": [
+      {
+        "WO_number": "7645326>Bf",
+        "Dr_Number": 963024.53956044,
+        "WK_ENDING": 44633,
+        "myWeekNumber": 19.6277777777777,
+        "AdjWeek": 44633,
+        "textbox72": 19.6277777777777,
+        "Login_ID": "id22",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 27.8
+      },
+      {
+        "WO_number": "7645326>Bf",
+        "Dr_Number": 963024.53956044,
+        "WK_ENDING": 44633,
+        "myWeekNumber": 19.6277777777777,
+        "AdjWeek": 44633,
+        "textbox72": 19.6277777777777,
+        "Login_ID": "id22",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 27.8
+      }
+    ],
+    "W20": []
+  },
+  "June": {
+    "W21": [
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 1068036.93846154,
+        "WK_ENDING": 44612,
+        "myWeekNumber": 21.9777777777777,
+        "AdjWeek": 44612,
+        "textbox72": 21.9777777777777,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 25.1
+      },
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 1068036.93846154,
+        "WK_ENDING": 44612,
+        "myWeekNumber": 21.9777777777777,
+        "AdjWeek": 44612,
+        "textbox72": 21.9777777777777,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 25.1
+      }
+    ],
+    "W22": [],
+    "W23": [
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 1156954.73846154,
+        "WK_ENDING": 44605,
+        "myWeekNumber": 23.5444444444441,
+        "AdjWeek": 44605,
+        "textbox72": 22.7611111111108,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 23.2999999999999
+      },
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 1156954.73846154,
+        "WK_ENDING": 44605,
+        "myWeekNumber": 23.5444444444441,
+        "AdjWeek": 44605,
+        "textbox72": 22.7611111111108,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 23.2999999999999
+      }
+    ],
+    "W24": [],
+    "W25": [
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 1277094.76461538,
+        "WK_ENDING": 44605,
+        "myWeekNumber": 25.894444444444,
+        "AdjWeek": 44605,
+        "textbox72": 25.1111111111107,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 20.5999999999999
+      },
+      {
+        "WO_number": "2434579>Bf",
+        "Dr_Number": 1277094.76461538,
+        "WK_ENDING": 44605,
+        "myWeekNumber": 25.894444444444,
+        "AdjWeek": 44605,
+        "textbox72": 25.1111111111107,
+        "Login_ID": "abdelhadi",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 20.5999999999999
+      }
+    ]
+  },
+  "July": {
+    "W26": [
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 1317141.44,
+        "WK_ENDING": 44612,
+        "myWeekNumber": 26.6777777777773,
+        "AdjWeek": 44612,
+        "textbox72": 25.894444444444,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 19.6999999999999
+      },
+      {
+        "WO_number": "3654654>Bf",
+        "Dr_Number": 1317141.44,
+        "WK_ENDING": 44612,
+        "myWeekNumber": 26.6777777777773,
+        "AdjWeek": 44612,
+        "textbox72": 25.894444444444,
+        "Login_ID": "youssef",
+        "myName": "complete name ",
+        "job_title": "Designer",
+        "textbox64": "y ",
+        "ST": 19.6999999999999
+      }
+    ],
+    "W27": [],
+    "W28": [],
+    "W29": []
+  },
+  "August": {
+    "W30": [],
+    "W31": [],
+    "W32": [],
+    "W33": []
+  },
+  "September": {
+    "W34": [],
+    "W35": [],
+    "W36": [],
+    "W37": [],
+    "W38": []
+  },
+  "October": {
+    "W39": [],
+    "W40": [],
+    "W41": [],
+    "W42": []
+  },
+  "November": {
+    "W43": [],
+    "W44": [],
+    "W45": [],
+    "W46": []
+  },
+  "December": {
+    "W47": [],
+    "W48": [],
+    "W49": [],
+    "W50": [],
+    "W51": []
+  }
+}

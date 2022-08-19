@@ -3,7 +3,7 @@ import '../App.css'
 import React, { useEffect, useState } from "react";
 import AddEmployeeModal from "./AddEmployeeModal";
 import EditEmployeetModal from './EditEmployeeModal'
-
+import environement from '../env.js'
 const ListEmployees = () => {
     const [employees, setEmployees] = useState([]);
     const [openModal1,setOpenModal1]=useState(false)
@@ -19,7 +19,7 @@ const ListEmployees = () => {
   
     const getEmployees = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/employee");
+        const response = await fetch(environement.hostip+"/api/employee");
         const jsonData = await response.json();
         setData(jsonData)
         setEmployees(jsonData);
@@ -33,7 +33,7 @@ const ListEmployees = () => {
     const deleteEmployee = async (employee_id) => {
       let id=Number(localStorage.getItem("id"))
       let token=localStorage.getItem("token")
-      axios.delete("http://localhost:5000/api/employee/"+Number(employee_id),{ data: { id:id,token:token}})
+      axios.delete(environement.hostip+"/api/employee/"+Number(employee_id),{ data: { id:id,token:token}})
     .then(response=>{
         console.log(id)
         

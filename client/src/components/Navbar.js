@@ -2,6 +2,7 @@ import axios from "axios";
 import '../App.css'
 import { useNavigate } from 'react-router'
 import logo from '../LearLogo.png'
+import environement from '../env.js'
 // import { logout } from '../../Redux/actions/auth'
 import { NavLink } from 'react-router-dom'
 
@@ -13,7 +14,7 @@ const Navbar = () => {
     console.log(e.target.files[0])
     var data=new FormData();
     data.append('file',e.target.files[0]);
-    const url='//localhost:5000/api/dashboard/upload';
+    const url=environement.hostip+'/api/dashboard/upload';
     axios.post(url, data , {headers: {"Content-Type": "multipart/form-data"}})
     .then((res) => {
       console.log(res)
@@ -35,15 +36,15 @@ const Navbar = () => {
   
   return (
    
-    <nav  style={{height:"50px"}}>
+    <nav  style={{height:"55px"}}>
       <a href="https://www.lear.com/" target="_blank" className='logo'>
       <img src={logo} alt="React Logo" height={"40px"} />
       </a>
-
-      <div className={"links-wrapper"}>
-        <NavLink to="/employees" className={"Nav-Link"} >manage employees</NavLink>
-        <NavLink to="/Dashboard" className={"Nav-Link"} >DASHBOARD</NavLink>
-        <NavLink to="/projects" className={"Nav-Link"} >manage Projects</NavLink>
+      
+      <div className={"links-wrapper "}>
+        <NavLink to="/employees" className={"Nav-Link "} >manage employees</NavLink>
+        <NavLink to="/Dashboard" className={"Nav-Link "} >DASHBOARD</NavLink>
+        <NavLink to="/projects" className={"Nav-Link "} >manage Projects</NavLink>
         
       </div>
       <div className="dropdown">
@@ -54,7 +55,7 @@ const Navbar = () => {
                 <label htmlFor="fu1" className={"Nav-Linkk"} style={{width:'100%'}} >
                 <a style={{display:"flex" , alignItems:'center'}}>
                   <i className="fa fa-upload"></i><p style={{margin:'0px 10px'}}>Update Data</p>
-                  <input id="fu1" type="file" name="file" accept=".csv" onChange={onInputChangeFile}/>
+                  <input id="fu1" type="file" name="file" accept=".xlsx" onChange={onInputChangeFile}/>
                 </a>
                 
                 </label>

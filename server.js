@@ -11,6 +11,7 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/dashboard', require('./routes/upload'))
 app.use('/api/project', require('./routes/project'))
 app.use('/api/employee', require('./routes/employee'))
+app.use('/api/dashboard', require('./routes/data'))
 
 
 const port = process.env.PORT || 5000 ;

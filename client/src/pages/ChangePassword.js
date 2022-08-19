@@ -2,6 +2,7 @@ import React, { useState} from 'react'
 import { Navigate , useNavigate} from 'react-router-dom';
 import '../App.css'
 import Navbar from '../components/Navbar';
+import environement from '../env.js'
 const axios = require('axios');
 
 
@@ -14,7 +15,7 @@ const Changepassword = () => {
 
   const updatepassword= async ()=>{
      if(newpassword===verifpassword){
-        await axios.put("http://localhost:5000/api/auth/updatepassword",
+        await axios.put(environement.hostip+"/api/auth/updatepassword",
       {newpassword: newpassword, password: password , token:localStorage.getItem("token") , id :Number(localStorage.getItem("id"))})
      .then(response=>{
       console.log(response.data)

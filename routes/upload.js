@@ -1,6 +1,10 @@
 const multer = require('multer');
 const express = require("express");
 const router = express.Router();
+const functions = require("../methodes/functions");
+
+
+const {excelToJson}=functions
 
 
 
@@ -10,7 +14,7 @@ const storage = multer.diskStorage({
       cb(null, './data')
   },
   filename: (req, file, cb) => {
-    const filename='source.csv';
+    const filename='source.xlsx';
     cb(null, filename)
 }
 });
@@ -22,6 +26,7 @@ router.post('/upload',upload.single('file') , (req, res) => {
     if (!req.file) {
       return res.status(400).json({ msg: 'No file uploaded' });
     } else{
+        excelToJson()
         return res.status(200).json({ msg: 'Data uploaded successfully' });
       }
     });

@@ -19,26 +19,15 @@ const Dashboard = () => {
     }else{
       setTobereturned(<>
         <Navbar/>
-        <div className='chartsholder'>
-          <div className='chartholder'>
-            <DonutChart/>
-          </div>
-          <div className='chartholder' >
-            <LineChart/>
-          </div>
-          <div className='chartholder' style={{backgroundColor:'cyan'}}>
-
-          </div>
-          <div className='chartholder'>
-          <TreeChart/>
-          </div>
-          <div className='chartholder' >
-            <RadialChart/>
-          </div>
-          <div className='chartholder' style={{backgroundColor:'orange'}}>
-            
-          </div>
-        </div>
+        
+        <div class="row w-100" style={{zIndex:0}}>
+          <div class="col-lg-4 col-md-6 col-sm-12"> <DonutChart/> </div>
+          <div class="col-lg-4 col-md-6 col-sm-12"> <LineChart/> </div>
+          <div class="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
+          <div class="col-lg-4 col-md-6 col-sm-12"> <TreeChart/> </div>
+          <div class="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
+          <div class="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
+      </div>
         
         </>)
     }

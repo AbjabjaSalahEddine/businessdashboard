@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router'
+import environement from '../env.js'
 const axios = require('axios');
 
 
@@ -20,7 +21,7 @@ const AddProjectModal = ({ open, onClose }) => {
   }
   const addProject= async ()=>{
      
-    await axios.post("http://localhost:5000/api/project/", {
+    await axios.post(environement.hostip+"/api/project/", {
         id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), bu: bu, wo_number:wonumber,project_name:projectname,requestor:requestor,wo_description:wodescription,xr:xr
     })
     .then(response=>{

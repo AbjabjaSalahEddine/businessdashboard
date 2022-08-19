@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router'
+import environement from '../env.js'
 import axios from "axios";
 
 
@@ -25,7 +26,7 @@ const EditProjectModal = ({ open, onClose , project}) => {
     // requestor=requestor||project.requestor
     // wodescription=wodescription||project.wo_description
     // xr=xr||project.xr
-    await axios.put("http://localhost:5000/api/project/"+project.project_id, { id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), bu: bu, wo_number: wonumber,project_name:projectname,requestor:requestor,wo_description:wodescription,xr:xr})
+    await axios.put(environement.hostip+"/api/project/"+project.project_id, { id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), bu: bu, wo_number: wonumber,project_name:projectname,requestor:requestor,wo_description:wodescription,xr:xr})
       .then(response=>{
           console.log(response.data)
           

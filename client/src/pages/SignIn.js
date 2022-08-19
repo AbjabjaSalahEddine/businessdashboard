@@ -1,6 +1,9 @@
 import React, { useState} from 'react'
 import { useNavigate } from 'react-router'
 import '../App.css'
+import environement from '../env.js'
+
+
 const axios = require('axios');
 
 
@@ -12,7 +15,7 @@ const SignIn = () => {
 
   const signIn= async ()=>{
      
-     await axios.post("http://localhost:5000/api/auth/login", {email: email, password: password})
+     await axios.post(environement.hostip+"/api/auth/login", {email: email, password: password})
      .then(response=>{
       console.log(response.data)
           alert("Welcome! you'r logged in")

@@ -1,0 +1,29 @@
+{
+    "donutchart":[
+        {
+            "week":"W1",
+            "Projects":60,
+            "Holidays":30,
+            "Training":52,
+            "Idle":34,
+            "xR non Available":22,
+            "Missed":6
+        }
+    ]
+    ,
+    "treechart":{
+
+    },
+    "linechart1":{
+
+    },
+    "radialchart": {
+
+    },
+    "linechart2":{
+
+    },
+    "linechart3":{
+
+    }
+}

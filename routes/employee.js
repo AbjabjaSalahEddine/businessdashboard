@@ -4,6 +4,7 @@ const pool = require("../db/db");
 const functions = require("../methodes/functions");
 
 const {isLogged}=functions
+const {readPeopleFromDB}=functions
 
 // get all employees
 router.get('/',async (req,res)=>{
@@ -22,6 +23,7 @@ router.post('/',async (req, res) => {
             console.log(system_login)
             employee_id = await pool.query('INSERT INTO employees(drts_full_name,drts_id,system_id,position,reports_to,integration_date,exit_date,birth_date,cin,phone_number,system_login) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) returning emp_id',
             [drts_full_name,drts_id,system_id,position,reports_to,integration_d,exit_d,birth_d,cin,phone,system_login]);
+            readPeopleFromDB()
             res.status(200).json({msg : "employee added successfully!" , employee_id: employee_id.rows[0].employee_id});
         } catch (error) {
             console.log(error.message)
@@ -39,6 +41,7 @@ router.put('/:employeeid',async (req, res) => {
             await pool.query(
                 'UPDATE employees SET drts_full_name=$1,drts_id=$2,system_id=$3,system_login=$4,position=$5,reports_to=$6,integration_date=$7,exit_date=$8,birth_date=$9,cin=$10,phone_number=$11 WHERE emp_id=$12',
                 [drts_full_name,drts_id,system_id,system_login,position,reports_to,integration_d,exit_d,birth_d,cin,phone,employee_id]);
+            readPeopleFromDB()
             res.status(200).json({msg : "employee edited successfully!"});
         } catch (error) {
             console.log(error.message)
@@ -69,6 +72,7 @@ router.delete('/:id',async (req,res)=>{
                 res.status(400).json({msg : "No Such Employee"});
             }else{
                 await pool.query('DELETE FROM employees WHERE emp_id=$1',[p_id]);
+                readPeopleFromDB()
                 res.status(200).json({msg : "Employee deleted successfully!"});
             }
             

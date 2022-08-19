@@ -4,7 +4,6 @@ import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router'
 import ListProjects from '../components/ListProjects'
 
-
 const Projects = () => {
   const navigate = useNavigate()
   const [tobereturned,setTobereturned]=useState('')
