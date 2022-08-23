@@ -56,10 +56,10 @@ router.put('/updatepassword',async (req, res) => {
                 res.status(200).send({msg: "OK",newpassword});
             }else{res.status(401).send({msg: "Wrong password"});} 
         }else{
-            res.status(401).send("you should be authentified");
+            res.status(401).send({msg: "you should be authentified"});
         }
     }else{
-        res.status(401).send("No Tocken sent");
+        res.status(401).send({msg: "No Tocken sent"});
     }
 })
 

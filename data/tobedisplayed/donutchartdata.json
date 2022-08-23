@@ -1,29 +1,65 @@
 {
   "W2": {
-    "HC": 5,
+    "HC": 6,
     "Projects": 44,
     "Holidays": 28,
     "Training": 113,
     "Idle": 21,
     "xR non Available": 57,
-    "Missed": -43
+    "Missed": 1
   },
   "W3": {
-    "HC": 5,
-    "Projects": 65,
+    "HC": 6,
+    "Projects": 86,
     "Holidays": 33,
     "Training": 20,
     "Idle": 0,
     "xR non Available": 0,
-    "Missed": 102
+    "Missed": 125
   },
   "W52": {
-    "HC": 3,
+    "HC": 4,
     "Projects": 0,
-    "Holidays": 0,
+    "Holidays": 22,
     "Training": 0,
     "Idle": 22,
     "xR non Available": 0,
-    "Missed": 110
+    "Missed": 132
+  },
+  "W4": {
+    "HC": 6,
+    "Projects": 32,
+    "Holidays": 0,
+    "Training": 0,
+    "Idle": 0,
+    "xR non Available": 0,
+    "Missed": 232
+  },
+  "W5": {
+    "HC": 6,
+    "Projects": 13,
+    "Holidays": 29,
+    "Training": 0,
+    "Idle": 0,
+    "xR non Available": 0,
+    "Missed": 222
+  },
+  "W6": {
+    "HC": 6,
+    "Projects": 45,
+    "Holidays": 51,
+    "Training": 0,
+    "Idle": 0,
+    "xR non Available": 0,
+    "Missed": 168
+  },
+  "W7": {
+    "HC": 6,
+    "Projects": 60,
+    "Holidays": 0,
+    "Training": 0,
+    "Idle": 0,
+    "xR non Available": 0,
+    "Missed": 204
   }
 }

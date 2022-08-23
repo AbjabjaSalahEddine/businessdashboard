@@ -75,8 +75,7 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:5px 20px;
-  position: sticky absolute ;
+  position:  fixed  sticky;
   top:0;
   left:0;
   width:100%;
@@ -85,13 +84,15 @@ nav{
   
 }
 
-.Nav-Linkk{
+.Nav-Link{
   cursor: pointer;
+  padding: 8px;
+  color: var(--primary-color);
 }
 
 .links-wrapper{
   display: flex;
-  width: 50%;
+  width: 40%;
   justify-content: space-around;
   align-items: center;
 }
@@ -495,7 +496,7 @@ textarea{
   float: left;
   text-align: right;
   width: 180px;
-  z-index: 100;
+  z-index: 1001;
 }
 
 

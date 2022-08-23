@@ -28,9 +28,8 @@ function isLogged(id,token){
 }
 
 const parseExcel = (filename) => {
-
+    console.log("=> reading/filtering excel will starts")
     const excelData = XLSX.readFile(filename);
-
     return Object.keys(excelData.Sheets).map(name => ({
         name,
         data: XLSX.utils.sheet_to_json(excelData.Sheets[name]),
@@ -54,7 +53,7 @@ function readProjectsFromDB(){
     wo_num_name = {}
     getProjectsData().then((result) => {
         result.rows.map(p=> {
-            wo_num_name[p.wo_number]=p.project_name
+            wo_num_name[p.wo_number]=Object({'name':p.project_name,'bu':p.bu})
         } )
         fs.writeFileSync("./data/fromdb/projects.json", JSON.stringify(wo_num_name, null, 2) , err => {
                     if (err) console.log("Error writing file:", err);
@@ -80,16 +79,14 @@ function readPeopleFromDB(){
 
 
 const  filterdata = ()=>{
-    console.log("=> filtering starts ...")
-
+    
     const employeedates =JSON.parse( fs.readFileSync("./data/fromdb/employees.json",
         {encoding:'utf8', flag:'r'}));
-
+    
     var data = parseExcel("./data/source.xlsx")[0].data.filter(function (p){
-        
-        console.log(p.Login_ID.toString());
         return employeedates[p.Login_ID.toString()]!==undefined;
     });
+    console.log("done filtering")
     fs.writeFileSync("./data/filteredsource.json", JSON.stringify(data, null, 2) , err => {
         if (err) console.log("Error writing file:", err);
       });
@@ -111,7 +108,7 @@ const filldonutchartdata =()=>{
     const filtereddata =JSON.parse( fs.readFileSync("./data/filteredsource.json",
             {encoding:'utf8', flag:'r'}));
     
-    const wo_num_name =JSON.parse( fs.readFileSync("./data/fromdb/projects.json",
+    const projectsdata =JSON.parse( fs.readFileSync("./data/fromdb/projects.json",
             {encoding:'utf8', flag:'r'}));
     const employeedates =JSON.parse( fs.readFileSync("./data/fromdb/employees.json",
             {encoding:'utf8', flag:'r'}));
@@ -131,22 +128,24 @@ const filldonutchartdata =()=>{
         if(!data["W"+parseInt(b["myWeekNumber"]).toString()]){
             data["W"+parseInt(b["myWeekNumber"]).toString()]=e
         }
-        switch(wo_num_name[b.WO_number]) {
-            case undefined:
-                data["W"+parseInt(b["myWeekNumber"]).toString()]["xR non Available"]+=Math.round(b.ST)
-                break;
-            case "Holidays":
-                data["W"+parseInt(b["myWeekNumber"]).toString()]["Holidays"]+=Math.round(b.ST)
-                break;
-            case "Training":
-                data["W"+parseInt(b["myWeekNumber"]).toString()]["Training"]+=Math.round(b.ST)
-                break;
-            case "Idle":
-                data["W"+parseInt(b["myWeekNumber"]).toString()]["Idle"]+=Math.round(b.ST)
-                break;
-            default:
-                data["W"+parseInt(b["myWeekNumber"]).toString()]["Projects"]+=Math.round(b.ST)
-          }
+        if(projectsdata[b.WO_number]==undefined){
+            data["W"+parseInt(b["myWeekNumber"]).toString()]["xR non Available"]+=Math.round(b.ST)
+        }else{
+            switch(projectsdata[b.WO_number].name) {
+                case "Holidays":
+                    data["W"+parseInt(b["myWeekNumber"]).toString()]["Holidays"]+=Math.round(b.ST)
+                    break;
+                case "Training":
+                    data["W"+parseInt(b["myWeekNumber"]).toString()]["Training"]+=Math.round(b.ST)
+                    break;
+                case "Idle":
+                    data["W"+parseInt(b["myWeekNumber"]).toString()]["Idle"]+=Math.round(b.ST)
+                    break;
+                default:
+                    data["W"+parseInt(b["myWeekNumber"]).toString()]["Projects"]+=Math.round(b.ST)
+              }
+        }
+        
           
           e = {
             "HC":0,
@@ -169,19 +168,103 @@ const filldonutchartdata =()=>{
     console.log("Donnutchart data ready !!!")
 }
 
+const filltreemapchartdata =()=>{
+    const filtereddata =JSON.parse( fs.readFileSync("./data/filteredsource.json",
+            {encoding:'utf8', flag:'r'}));
+    
+    const projectsdata =JSON.parse( fs.readFileSync("./data/fromdb/projects.json",
+            {encoding:'utf8', flag:'r'}));
+    
+    
+    let data = {}
+    filtereddata.forEach(p=>{
+        
+        if(projectsdata[p.WO_number]){
+            if(!data[projectsdata[p.WO_number].bu]){
+                data[projectsdata[p.WO_number].bu]=0
+            }
+            data[projectsdata[p.WO_number].bu]+=Math.round(p.ST)
+        }
+    })
+    
+    fs.writeFileSync("./data/tobedisplayed/treemapchartdata.json", JSON.stringify(data, null, 2) , err => {
+        if (err) console.log("Error writing file:", err);
+      });
+    console.log("Treemapchart data ready !!!")
+}
 
+const fillradialchartdata =()=>{
+    const donutchartdata =JSON.parse( fs.readFileSync("./data/tobedisplayed/donutchartdata.json",
+            {encoding:'utf8', flag:'r'}));
+    var efficiencies=[];
+    Object.keys(donutchartdata).forEach( key => {
+        sum=donutchartdata[key]["Projects"]+donutchartdata[key]["Missed"]+donutchartdata[key]["Idle"]+donutchartdata[key]["Training"]+donutchartdata[key]['xR non Available']
+        
+        efficiencies.push((donutchartdata[key]["Projects"]+donutchartdata[key]["xR non Available"])/sum)
+    });
+    const average = array => array.reduce((a, b) => a + b) / array.length;
+    
+
+    data={'efficiency':(average(efficiencies)*100).toFixed(2)}
+
+    fs.writeFileSync("./data/tobedisplayed/radialchartdata.json", JSON.stringify(data, null, 2) , err => {
+        if (err) console.log("Error writing file:", err);
+      });
+    console.log("Radialchart data ready !!!")
+}
+const filllinechartdata =()=>{
+    const donutchartdata =JSON.parse( fs.readFileSync("./data/tobedisplayed/donutchartdata.json",
+            {encoding:'utf8', flag:'r'}));
+    const employeedates =JSON.parse( fs.readFileSync("./data/fromdb/employees.json",
+        {encoding:'utf8', flag:'r'}));
+
+    var data={
+        "January": 0,
+        "February": 0,
+        "March": 0,
+        "April": 0,
+        "May": 0,
+        "June": 0,
+        "July": 0,
+        "August": 0,
+        "September": 0,
+        "October": 0,
+        "November": 0,
+        "December": 0
+      }
+
+      for (let i = 1; i < 52; i++) {
+        data[mounthweek[i]]+=headCount(i,employeedates)
+      }
+      for (let i = 1; i < 13; i++) {
+        const is5=i%3==0 ? 1:0
+        data[Object.keys(data)[i-1]]=data[Object.keys(data)[i-1]]/(4+is5)
+        
+      }
+    fs.writeFileSync("./data/tobedisplayed/linechartdata.json", JSON.stringify(data, null, 2) , err => {
+        if (err) console.log("Error writing file:", err);
+      });
+    console.log("Linechartdata data ready !!!")
+}
+
+async function  fillData(){
+    console.log("=> filling data to be displayed ...")
+    filldonutchartdata();
+    filltreemapchartdata();
+    fillradialchartdata();
+    filllinechartdata()
+}
 
 async function  excelToJson(){
-    
     filterdata()
-    console.log("data well filtered \n=> filling data to be displayed ...")
-    filldonutchartdata();
+    fillData()
 }
 
 
 
-
 exports.isLogged=isLogged
+exports.fillData=fillData
 exports.excelToJson=excelToJson
 exports.readPeopleFromDB=readPeopleFromDB
 exports.readProjectsFromDB=readProjectsFromDB
+

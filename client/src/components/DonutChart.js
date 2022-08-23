@@ -2,13 +2,46 @@ import { useState , useEffect} from 'react';
 import '../App.css'
 import Chart from "react-apexcharts";
 
+const axios = require('axios');
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
 
 const DonutChart = () => {
-  const [week, setWeek]=useState('24')
+
+  const [data,setData]=useState({})
+  const [week, setWeek]=useState()
+  const [weeks, setWeeks]=useState([])
+
+  useEffect(() => {
+    getData();
+    
+  },[]);
+
+  
+  const getData= async ()=>{
+     
+    await axios.post(hostIp+"/api/dashboard/data", {chart:"donutchartdata"})
+    .then(response=>{
+      setData(response.data)
+      setWeeks(Object.keys(response.data))
+      setWeek(weeks[0])
+        
+    })
+    .catch(error=>{
+        console.log(JSON.parse(JSON.stringify(error.response)).data.msg);
+        alert(JSON.parse(JSON.stringify(error.response)).data.msg)
+    })
+}
+
+series=[0, 0, 0, 0, 0 , 0];
+  
   var labels = ["Projects", "Holidays", "Missed", "Training", "Idle" , "xR non Available"];
-  var  series=[60,30+ parseInt(week) , 13, 33 , 50 , 9];
+  if(week){
+    var  series=[data[week].Projects, data[week].Holidays, data[week].Missed, data[week].Training, data[week].Idle , data[week]["xR non Available"]];
+  }else{
+    getData()
+  }
+  
   var donutdata={labels,series};
-  var elements=[1,2,3,4,5,6,7,99]
   var options ={
     title: {
       text: "BookedHours Breakdown By Week",
@@ -81,20 +114,17 @@ const DonutChart = () => {
       height: 300,
     }
   } ;
-  useEffect(() => {
-    
-  },[week]);
+  
 
     return (
       <div>
         <div style={{ position:'relative' , width:'99%', height:'99%' }} >
           
           <Chart options={options} series={series} type="donut"  />
-          <div style={{display:"flex",position:"absolute ",top:"85%",left:"60%",fontSize:"15px"}}>
+          <div style={{display:"flex",position:"absolute ",bottom:"0%",right:"0%",fontSize:"14px"}}>
                 <p style={{margin:"0px 10px"}}>Calender Weeks : </p>
                 <select onChange={(e)=> setWeek(e.target.value)} >
-                <option value="24">24</option>
-                {elements.map((week) => {
+                {weeks.map((week) => {
                   return <option value={week}>{week}</option>
                 })}
                 </select>

@@ -4,7 +4,7 @@ const pool = require("../db/db");
 const functions = require("../methodes/functions");
 
 const {isLogged}=functions
-const {readPeopleFromDB}=functions
+const {readPeopleFromDB,excelToJson}=functions
 
 // get all employees
 router.get('/',async (req,res)=>{
@@ -32,7 +32,14 @@ router.post('/',async (req, res) => {
         res.status(401).json({ msg :'You should be authentified!!' });
     }
 })
-
+router.post('/update',async (req, res) => {
+    try { 
+        excelToJson()
+        res.status(200).json({msg : "People data updated for dashboard"});
+    } catch (error) {
+        console.log(error.message)
+    }
+})
 router.put('/:employeeid',async (req, res) => {
     const employee_id=req.params.employeeid;
     const { drts_full_name,drts_id,system_id,system_login,position,reports_to,integration_d,exit_d,birth_d,cin,phone, id , token} = req.body;
@@ -41,8 +48,8 @@ router.put('/:employeeid',async (req, res) => {
             await pool.query(
                 'UPDATE employees SET drts_full_name=$1,drts_id=$2,system_id=$3,system_login=$4,position=$5,reports_to=$6,integration_date=$7,exit_date=$8,birth_date=$9,cin=$10,phone_number=$11 WHERE emp_id=$12',
                 [drts_full_name,drts_id,system_id,system_login,position,reports_to,integration_d,exit_d,birth_d,cin,phone,employee_id]);
-            readPeopleFromDB()
-            res.status(200).json({msg : "employee edited successfully!"});
+                readPeopleFromDB()
+                res.status(200).json({msg : "employee edited successfully!"});
         } catch (error) {
             console.log(error.message)
         }

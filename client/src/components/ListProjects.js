@@ -3,7 +3,10 @@ import '../App.css'
 import React, { useEffect, useState } from "react";
 import AddProjectModal from "./AddProjectModal";
 import EditProjectModal from './EditProjectModal'
-import environement from '../env.js'
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
+
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
 
 const ListProjects = () => {
     const [projects, setProjects] = useState([]);
@@ -12,6 +15,7 @@ const ListProjects = () => {
     const [projecttobeedited,setProject]=useState();
     const [search,setSearch]=useState('')
     const [data,setData]=useState()
+    const navigate = useNavigate()
 
   
     const openEditing = (project)=>{
@@ -20,7 +24,7 @@ const ListProjects = () => {
   
     const getProjects = async () => {
       try {
-        const response = await fetch(environement.hostip+"/api/project");
+        const response = await fetch(hostIp+"/api/project");
         const jsonData = await response.json();
         setData(jsonData)
         setProjects(jsonData);
@@ -29,15 +33,52 @@ const ListProjects = () => {
       }
     };
 
-    
+    const update =async ()=>{
+      Swal.fire({
+        title: 'Thanks For Waiting',
+        html: 'uploading , reading , filtering ... can take a while',
+        allowOutsideClick: false,
+        allowEscapeKey:false,
+        didOpen: () => {
+          Swal.showLoading()
+        }
+      })
+      await axios.post(hostIp+"/api/project/update").then(response=>{
+            
+            Swal.fire({
+              title: JSON.parse(JSON.stringify(response)).data.msg,
+              icon: 'success',
+              timer: 1800,
+              allowOutsideClick: false,
+              allowEscapeKey:false,
+              showConfirmButton:false
+            })
+            setTimeout(() => {
+              navigate("/dashboard")
+            }, 1800);
+            
+        })
+        .catch(error=>{
+            console.log(JSON.parse(JSON.stringify(error.response)).data.msg);
+            alert(JSON.parse(JSON.stringify(error.response)).data.msg)
+        })
+    }
+
     const deleteProject = async (project_id) => {
       let id=Number(localStorage.getItem("id"))
       let token=localStorage.getItem("token")
-      axios.delete(environement.hostip+"/api/project/"+Number(project_id),{ data: { id:id,token:token}})
+      axios.delete(hostIp+"/api/project/"+Number(project_id),{ data: { id:id,token:token}})
     .then(response=>{
         console.log(id)
         
-        alert(JSON.parse(JSON.stringify(response)).data.msg)
+        Swal.fire({
+          title: JSON.parse(JSON.stringify(response)).data.msg,
+          icon: 'warning',
+          timer: 1400,
+          allowOutsideClick: false,
+          allowEscapeKey:false,
+          showConfirmButton:false
+        })
         getProjects()
         
     })
@@ -71,7 +112,10 @@ const ListProjects = () => {
             <p style={{fontSize:'30px'}}>MANAGE PROJECTS</p>
         </div>
     <nav className="justify-content-between" style={{position:"unset",width:'90%',margin:'auto'}}>
+      <div>
       <button type="button" className="btn btn-outline-success modalButton" style={{borderRight:'solid 1px black',padding:'10px 20px'}}  onClick={()=>setOpenModal1(true)}>Add a Project <i className="fa fa-plus"></i></button>
+      <button type="button" className="btn btn-outline-success modalButton" style={{borderRight:'solid 1px black',padding:'10px 20px'}}  onClick={()=>update()}>Update To Dashboard <i className="fa fa-refresh"></i></button>
+      </div>
         <AddProjectModal open={openModal1} onClose={() => setOpenModal1(false)} />
         <form onSubmit={e => handleSubmit(e)} style={{whidth:'400px'}} className="d-flex">
             <input type="search" onChange={(e)=> setSearch(e.target.value)}  placeholder='Search By WO Number'/>

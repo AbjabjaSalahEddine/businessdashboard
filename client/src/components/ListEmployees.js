@@ -3,7 +3,12 @@ import '../App.css'
 import React, { useEffect, useState } from "react";
 import AddEmployeeModal from "./AddEmployeeModal";
 import EditEmployeetModal from './EditEmployeeModal'
-import environement from '../env.js'
+import Swal from 'sweetalert2'
+import { useNavigate } from "react-router-dom";
+
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
+
+
 const ListEmployees = () => {
     const [employees, setEmployees] = useState([]);
     const [openModal1,setOpenModal1]=useState(false)
@@ -11,6 +16,7 @@ const ListEmployees = () => {
     const [employeetobeedited,setEmployee]=useState();
     const [search,setSearch]=useState('')
     const [data,setData]=useState()
+    const navigate = useNavigate()
 
   
     const openEditing = (employee)=>{
@@ -19,7 +25,7 @@ const ListEmployees = () => {
   
     const getEmployees = async () => {
       try {
-        const response = await fetch(environement.hostip+"/api/employee");
+        const response = await fetch(hostIp+"/api/employee");
         const jsonData = await response.json();
         setData(jsonData)
         setEmployees(jsonData);
@@ -33,11 +39,18 @@ const ListEmployees = () => {
     const deleteEmployee = async (employee_id) => {
       let id=Number(localStorage.getItem("id"))
       let token=localStorage.getItem("token")
-      axios.delete(environement.hostip+"/api/employee/"+Number(employee_id),{ data: { id:id,token:token}})
+      axios.delete(hostIp+"/api/employee/"+Number(employee_id),{ data: { id:id,token:token}})
     .then(response=>{
         console.log(id)
         
-        alert(JSON.parse(JSON.stringify(response)).data.msg)
+        Swal.fire({
+          title: JSON.parse(JSON.stringify(response)).data.msg,
+          icon: 'warning',
+          timer: 1400,
+          allowOutsideClick: false,
+          allowEscapeKey:false,
+          showConfirmButton:false
+        })
         getEmployees()
         
     })
@@ -51,11 +64,41 @@ const ListEmployees = () => {
       e.preventDefault()
       console.log(employees)
       filtersearch()
+      
     }
-    
+    const update =async ()=>{
+      Swal.fire({
+        title: 'Thanks For Waiting',
+        html: 'uploading , reading , filtering ... can take a while',
+        allowOutsideClick: false,
+        allowEscapeKey:false,
+        didOpen: () => {
+          Swal.showLoading()
+        }
+      })
+      await axios.post(hostIp+"/api/employee/update").then(response=>{
+            
+            Swal.fire({
+              title: JSON.parse(JSON.stringify(response)).data.msg,
+              icon: 'success',
+              timer: 1800,
+              allowOutsideClick: false,
+              allowEscapeKey:false,
+              showConfirmButton:false
+            })
+            setTimeout(() => {
+              navigate("/dashboard")
+            }, 1800);
+            
+        })
+        .catch(error=>{
+            console.log(JSON.parse(JSON.stringify(error.response)).data.msg);
+            alert(JSON.parse(JSON.stringify(error.response)).data.msg)
+        })
+    }
     const filtersearch =()=>{
 
-      const p = data.filter(employee => employee.drts_full_name.toUpperCase().includes(search.toUpperCase()));
+      const p = data.filter(employee => employee.drts_full_name===undefined?false:employee.drts_full_name.toUpperCase().includes(search.toUpperCase()));
       setEmployees(p)
       
     }
@@ -69,7 +112,11 @@ const ListEmployees = () => {
    
    <div style={{width:'90%',margin:'auto'}}>
     <nav className="justify-content-between" style={{position:"unset",width:'90%',margin:'auto'}}>
+      <div>
       <button type="button" className="btn btn-outline-success modalButton" style={{borderRight:'solid 1px black',padding:'10px 20px'}}  onClick={()=>setOpenModal1(true)}>Add an Employee <i className="fa fa-plus"></i></button>
+      <button type="button" className="btn btn-outline-success modalButton" style={{borderRight:'solid 1px black',padding:'10px 20px'}}  onClick={()=>update()}>Update To Dashboard <i className="fa fa-refresh"></i></button>
+      </div>
+      
         <AddEmployeeModal open={openModal1} onClose={() => setOpenModal1(false)} />
         <form onSubmit={e => handleSubmit(e)} style={{whidth:'400px'}} className="d-flex">
             <input type="search" onChange={(e)=> setSearch(e.target.value)}  placeholder='Employee Name'/>

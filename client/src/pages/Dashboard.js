@@ -20,13 +20,13 @@ const Dashboard = () => {
       setTobereturned(<>
         <Navbar/>
         
-        <div class="row w-100" style={{zIndex:0}}>
-          <div class="col-lg-4 col-md-6 col-sm-12"> <DonutChart/> </div>
-          <div class="col-lg-4 col-md-6 col-sm-12"> <LineChart/> </div>
-          <div class="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
-          <div class="col-lg-4 col-md-6 col-sm-12"> <TreeChart/> </div>
-          <div class="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
-          <div class="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
+        <div className="row w-100" style={{zIndex:1}}>
+          <div className="col-lg-4 col-md-6 col-sm-12"> <DonutChart/> </div>
+          <div className="col-lg-4 col-md-6 col-sm-12"> <LineChart/> </div>
+          <div className="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
+          <div className="col-lg-4 col-md-6 col-sm-12"> <TreeChart/> </div>
+          <div className="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
+          <div className="col-lg-4 col-md-6 col-sm-12"> <LineChart/> </div>
       </div>
         
         </>)

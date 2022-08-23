@@ -2,25 +2,49 @@ import { useState , useEffect} from 'react';
 import '../App.css'
 import Chart from "react-apexcharts";
 
+const axios = require('axios');
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
 
 const LineChart = () => {
+  const [data,setData]=useState()
 
-  var  series= [{
-    name: "Dedicated HC",
-    type: 'area',
-    data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
-  },
-  {
-    name: "HeadCount",
-    type: 'line',
-    data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
-  },
-  {
-    name: 'Forcasted HC',
-    type: 'line',
-    data: [87, 57, 74, 99.5, 75, 38, 62, 47, 82, 56, 45, 47]
-  }
-]
+  useEffect(() => {
+    getData();
+    
+  },[]);
+  
+  const getData= async ()=>{
+     
+    await axios.post(hostIp+"/api/dashboard/data", {chart:"linechartdata"})
+    .then(response=>{
+      setData(response.data)
+        
+    })
+    .catch(error=>{
+        console.log(JSON.parse(JSON.stringify(error.response)).data.msg);
+        alert(JSON.parse(JSON.stringify(error.response)).data.msg)
+    })
+}
+if(data){
+  var  series= [
+      {
+      name: "Dedicated HC",
+      type: 'area',
+      data: Object.values(data)
+    },
+    {
+      name: "HeadCount",
+      type: 'line',
+      data: Object.values(data)
+    },
+    {
+      name: 'Forcasted HC',
+      type: 'line',
+      data: Object.values(data)
+    }
+  ]
+}
+  
 
   var options ={
     chart: {
@@ -32,7 +56,8 @@ const LineChart = () => {
       },
     },
     dataLabels: {
-      enabled: [true,false,false],
+      // enabled: [true,false,false],
+      enabled: false,
       offsetY:-5,
       background: {
         enabled: false
@@ -45,8 +70,8 @@ const LineChart = () => {
       },
     },
     stroke: {
-      width: [2, 3, 2],
-      curve: ['straight','smooth','straight'],
+      width: [2, 2, 3],
+      curve: ['smooth','smooth','smooth'],
     },
     colors: [
       '#c5e0b4',
@@ -115,7 +140,7 @@ const LineChart = () => {
       <div>
         <div id="chart" style={{ position:'relative' , width:'99%', height:'99%' }} >
           
-          <Chart options={options} series={series} type="line"  />
+          { series ? <Chart options={options} series={series} type="line"  />:null}
           
           
         </div>

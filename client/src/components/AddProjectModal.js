@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router'
-import environement from '../env.js'
-const axios = require('axios');
+import Swal from 'sweetalert2'
 
+const axios = require('axios');
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
 
 const AddProjectModal = ({ open, onClose }) => {
   
@@ -12,7 +12,6 @@ const AddProjectModal = ({ open, onClose }) => {
   const [requestor,setRequestor] = useState('')
   const [wodescription,setWodescription] = useState('')
   const [xr,setXr] = useState('')
-  const navigate = useNavigate()
 
   const handleSubmit= (e)=>{
     e.preventDefault()
@@ -21,14 +20,22 @@ const AddProjectModal = ({ open, onClose }) => {
   }
   const addProject= async ()=>{
      
-    await axios.post(environement.hostip+"/api/project/", {
+    await axios.post(hostIp+"/api/project/", {
         id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), bu: bu, wo_number:wonumber,project_name:projectname,requestor:requestor,wo_description:wodescription,xr:xr
     })
     .then(response=>{
         console.log(response.data)
         
-        alert(JSON.parse(JSON.stringify(response)).data.msg)
-        window.location.reload(false);
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: JSON.parse(JSON.stringify(response)).data.msg,
+          showConfirmButton: false,
+          timer: 1600
+        })
+        setTimeout(() => {
+          window.location.reload();
+        }, 1600);
         
     })
     .catch(error=>{

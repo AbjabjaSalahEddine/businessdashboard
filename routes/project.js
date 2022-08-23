@@ -4,7 +4,8 @@ const pool = require("../db/db");
 const functions = require("../methodes/functions");
 
 const {isLogged}=functions
-const {readProjectsFromDB}=functions
+const {readProjectsFromDB,fillData}=functions
+
 // get all projects
 router.get('/',async (req,res)=>{
     try {
@@ -29,6 +30,15 @@ router.post('/',async (req, res) => {
         }
     }else{
         res.status(401).json({ msg :'You should be authentified!!' });
+    }
+})
+
+router.post('/update',async (req, res) => {
+    try { 
+        fillData()
+        res.status(200).json({msg : "Projects data updated for dashboard"});
+    } catch (error) {
+        console.log(error.message)
     }
 })
 

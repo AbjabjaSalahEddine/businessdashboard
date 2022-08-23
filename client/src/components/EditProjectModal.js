@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router'
-import environement from '../env.js'
 import axios from "axios";
-
+import Swal from 'sweetalert2'
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
 
 const EditProjectModal = ({ open, onClose , project}) => {
   
@@ -12,7 +11,7 @@ const EditProjectModal = ({ open, onClose , project}) => {
   var [requestor,setRequestor] = useState(project.requestor)
   var [wodescription,setWodescription] = useState(project.wo_description)
   var [xr,setXr] = useState(project.xr)
-  var navigate = useNavigate()
+
 
   const handleSubmit= (e)=>{
     e.preventDefault()
@@ -26,12 +25,20 @@ const EditProjectModal = ({ open, onClose , project}) => {
     // requestor=requestor||project.requestor
     // wodescription=wodescription||project.wo_description
     // xr=xr||project.xr
-    await axios.put(environement.hostip+"/api/project/"+project.project_id, { id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), bu: bu, wo_number: wonumber,project_name:projectname,requestor:requestor,wo_description:wodescription,xr:xr})
+    await axios.put(hostIp+"/api/project/"+project.project_id, { id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), bu: bu, wo_number: wonumber,project_name:projectname,requestor:requestor,wo_description:wodescription,xr:xr})
       .then(response=>{
           console.log(response.data)
           
-          alert(JSON.parse(JSON.stringify(response)).data.msg)
-          window.location.reload(false);
+          Swal.fire({
+            position: 'top-center',
+            icon: 'info',
+            title: JSON.parse(JSON.stringify(response)).data.msg,
+            showConfirmButton: false,
+            timer: 1600
+          })
+          setTimeout(() => {
+            window.location.reload();
+          }, 1600);
           
       })
     .catch(error=>{

@@ -9,19 +9,19 @@ const fs = require('fs');
 const {isLogged}=functions
 
 
-router.get('/data',async (req,res)=>{
-    const { chart } = req.body;
+router.post('/data',async (req,res)=>{
+    const {chart} =req.body
     try {
-        var path="../data/tobedisplayed/"+chart+".json"
-        var data = require(path);
-        console.log(data)
+        
+        var path="./data/tobedisplayed/"+chart+".json"
+        const data =JSON.parse( fs.readFileSync(path,
+        {encoding:'utf8', flag:'r'}));
         if(data){
             res.send(data)
         }else{
             res.status(404).send("this chart's data is not found !")
         }
     } catch (error) {
-        console.log(error.message)
         res.send(error.message.split("\n")[0])
     }
   

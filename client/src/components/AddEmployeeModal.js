@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router'
-import environement from '../env.js'
+import Swal from 'sweetalert2'
+
 const axios = require('axios');
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
 
 
 const AddEmployeetModal = ({ open, onClose }) => {
@@ -17,7 +18,7 @@ const AddEmployeetModal = ({ open, onClose }) => {
   var [birth_d,setBirth_d] = useState()
   var [cin,setCin] = useState()
   var [phone,setPhone] = useState()
-  const navigate = useNavigate()
+
 
   const handleSubmit= (e)=>{
     e.preventDefault()
@@ -26,14 +27,22 @@ const AddEmployeetModal = ({ open, onClose }) => {
   }
   const addEmployee= async ()=>{
      
-    await axios.post(environement.hostip+"/api/employee/", {
+    await axios.post(hostIp+"/api/employee/", {
         id:Number(localStorage.getItem("id")),token:localStorage.getItem("token"), drts_full_name,drts_id,system_id,system_login,position,reports_to,integration_d,exit_d,birth_d,cin,phone
     })
     .then(response=>{
         console.log(response.data)
         
-        alert(JSON.parse(JSON.stringify(response)).data.msg)
-        window.location.reload(false);
+        Swal.fire({
+          position: 'top-center',
+          icon: 'success',
+          title: JSON.parse(JSON.stringify(response)).data.msg,
+          showConfirmButton: false,
+          timer: 1600
+        })
+        setTimeout(() => {
+          window.location.reload();
+        }, 1600);
         
     })
     .catch(error=>{

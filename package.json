@@ -23,6 +23,7 @@
     "pkg": "^5.7.0",
     "rcedit": "^3.0.1",
     "react-bootstrap": "^2.4.0",
+    "sweetalert2": "^11.4.28",
     "xlsx": "^0.18.5"
   }
 }

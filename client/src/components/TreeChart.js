@@ -1,18 +1,36 @@
 import { useState , useEffect} from 'react';
 import '../App.css'
 import Chart from "react-apexcharts";
-
+const axios = require('axios');
+const hostIp = window.location.href.split(":")[0]+":"+window.location.href.split(":")[1]+":5000"
 
 const TreeChart = () => {
+  const [treemapdata,setData]=useState()
+  const getData= async ()=>{
+     
+    await axios.post(hostIp+"/api/dashboard/data", {chart:"treemapchartdata"})
+    .then(response=>{
+      setData(response.data)
+        
+    })
+    .catch(error=>{
+        console.log(JSON.parse(JSON.stringify(error.response)).data.msg);
+        alert(JSON.parse(JSON.stringify(error.response)).data.msg)
+    })
+}
 
-  var  series= [{data: [{x: 'FCA',y: 742},
-  {x: 'JLR',y: 670},
-  { x: 'Rabat',y: 499},
-  {x: 'Velizy',y: 188},
-  { x: 'PSA',y: 140 },
-  { x: 'O...',y: 60 },
-  { x: '',y: 4 }
-  ]}] ;
+useEffect(() => {
+  getData();
+  
+},[]);
+if(treemapdata){
+  var s = [{data:Object.keys(treemapdata).map((key) => Object({'x':key,'y':treemapdata[key]}))}]
+  
+}else{
+  getData()
+}
+  
+  
 
   var options ={
     chart: {
@@ -62,7 +80,7 @@ const TreeChart = () => {
       <div>
         <div id="chart" style={{ position:'relative' , width:'99%', height:'99%' }} >
           
-          <Chart options={options} series={series} type="treemap"  />
+          {s ? <Chart options={options} series={s} type="treemap"  /> : null}
           
           
         </div>
