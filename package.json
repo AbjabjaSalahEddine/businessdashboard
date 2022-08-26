@@ -25,9 +25,5 @@
     "react-bootstrap": "^2.4.0",
     "sweetalert2": "^11.4.28",
     "xlsx": "^0.18.5"
-  },
-  "engines": {
-  "node": "6.9.1",
-  "npm": "3.10.8"
   }
 }
