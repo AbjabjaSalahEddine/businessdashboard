@@ -15,10 +15,6 @@
     "exitweek": 35,
     "integrationweek": 27
   },
-  "id22": {
-    "exitweek": 34,
-    "integrationweek": 28
-  },
   "hanan": {
     "exitweek": 53,
     "integrationweek": 52
@@ -39,8 +35,8 @@
     "exitweek": 53,
     "integrationweek": -1
   },
-  "yfxdf": {
-    "exitweek": 53,
-    "integrationweek": -1
+  "id22": {
+    "exitweek": 34,
+    "integrationweek": 52
   }
 }

@@ -92,12 +92,19 @@ const  filterdata = ()=>{
       });
 }
 
+const isInWeek=(w,integrationweek,exitweek)=>{
+    w=(w%52)
+    integrationweek=integrationweek==52?0:integrationweek
+    exitweek=exitweek==52?0:exitweek
+    return (integrationweek<w && exitweek>w)
+}
+
 const headCount=(w,employeedates)=>{
-    w=(w%52) +1
+    w=(w%52)
     let sum=0;
     
     for (var e in employeedates) {
-        sum+=(employeedates[e].exitweek>w && employeedates[e].integrationweek<w)?1:0
+        sum+=isInWeek(w,employeedates[e].integrationweek,employeedates[e].exitweek)?1:0
     }
     return sum
 }
@@ -163,6 +170,82 @@ const filldonutchartdata =()=>{
         data[w].Missed=(data[w].HC*44)-(data[w].Projects+data[w].Holidays+data[w].Idle+data[w].Training+data[w]["xR non Available"])
     }
     fs.writeFileSync("./data/tobedisplayed/donutchartdata.json", JSON.stringify(data, null, 2) , err => {
+        if (err) console.log("Error writing file:", err);
+      });
+    console.log("Donnutchart data ready !!!")
+}
+const fillemployeeslistchartdata =()=>{
+    const filtereddata =JSON.parse( fs.readFileSync("./data/filteredsource.json",
+            {encoding:'utf8', flag:'r'}));
+    
+    const projectsdata =JSON.parse( fs.readFileSync("./data/fromdb/projects.json",
+            {encoding:'utf8', flag:'r'}));
+    const employeedates =JSON.parse( fs.readFileSync("./data/fromdb/employees.json",
+            {encoding:'utf8', flag:'r'}));
+    
+    let data = {}
+
+    let m = {
+        "Projects":0,
+        "Holidays":0,
+        "Training":0,
+        "Idle":0,
+        "xR non Available":0,
+        "Missed":44
+    }
+    filtereddata.forEach(b => { 
+        var weekNum=parseInt(b["myWeekNumber"])
+        if(!data["W"+weekNum.toString()]){
+            data["W"+weekNum.toString()]={}
+        }
+        for (var e in employeedates) {
+            if(isInWeek(weekNum,employeedates[e].integrationweek,employeedates[e].exitweek)){
+                if(!data["W"+weekNum.toString()][e]){
+                    data["W"+weekNum.toString()][e]=m
+                }
+                if(b.Login_ID==e){
+                    if(projectsdata[b.WO_number]==undefined){
+                        data["W"+weekNum.toString()][e]["xR non Available"]+=Math.round(b.ST)
+                    }else{
+                        switch(projectsdata[b.WO_number].name) {
+                            case "Holidays":
+                                data["W"+weekNum.toString()][e]["Holidays"]+=Math.round(b.ST)
+                                
+                                break;
+                            case "Training":
+                                data["W"+weekNum.toString()][e]["Training"]+=Math.round(b.ST)
+                                break;
+                            case "Idle":
+                                data["W"+weekNum.toString()][e]["Idle"]+=Math.round(b.ST)
+                                break;
+                            default:
+                                data["W"+weekNum.toString()][e]["Projects"]+=Math.round(b.ST)
+                          }
+                    }
+                    data["W"+weekNum.toString()][e]["Missed"]-=Math.round(b.ST)
+                }
+
+                
+                m = {
+                    "Projects":0,
+                    "Holidays":0,
+                    "Training":0,
+                    "Idle":0,
+                    "xR non Available":0,
+                    "Missed":44
+                }
+                
+            }
+        }
+
+        
+        
+          
+        
+        
+    })
+    
+    fs.writeFileSync("./data/tobedisplayed/employeeslistchartdata.json", JSON.stringify(data, null, 2) , err => {
         if (err) console.log("Error writing file:", err);
       });
     console.log("Donnutchart data ready !!!")
@@ -233,7 +316,7 @@ const filllinechartdata =()=>{
         "December": 0
       }
 
-      for (let i = 1; i < 52; i++) {
+      for (let i = 1; i <= 52; i++) {
         data[mounthweek[i]]+=headCount(i,employeedates)
       }
       for (let i = 1; i < 13; i++) {
@@ -253,15 +336,13 @@ async function  fillData(){
     filltreemapchartdata();
     fillradialchartdata();
     filllinechartdata()
+    fillemployeeslistchartdata()
 }
 
 async function  excelToJson(){
     filterdata()
     fillData()
 }
-
-
-
 exports.isLogged=isLogged
 exports.fillData=fillData
 exports.excelToJson=excelToJson

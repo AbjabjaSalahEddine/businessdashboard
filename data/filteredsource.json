@@ -244,7 +244,7 @@
     "myName": "complete name ",
     "job_title": "Designer",
     "textbox64": "y ",
-    "ST": 29
+    "ST": 20
   },
   {
     "WO_number": "7645326>Bf",
@@ -336,5 +336,57 @@
     "job_title": "Designer",
     "textbox64": "y ",
     "ST": 30
+  },
+  {
+    "WO_number": "3654654>Bf",
+    "Dr_Number": 1317143.44,
+    "WK_ENDING": 44615,
+    "myWeekNumber": 2,
+    "AdjWeek": 44615,
+    "textbox72": 28.894444444444,
+    "Login_ID": "salmane",
+    "myName": "complete name ",
+    "job_title": "Designer",
+    "textbox64": "y ",
+    "ST": 10
+  },
+  {
+    "WO_number": "2434579>Bf",
+    "Dr_Number": 777876.8,
+    "WK_ENDING": 44634,
+    "myWeekNumber": 5,
+    "AdjWeek": 44634,
+    "textbox72": 15,
+    "Login_ID": "othman",
+    "myName": "complete name ",
+    "job_title": "Designer",
+    "textbox64": "y ",
+    "ST": 4
+  },
+  {
+    "WO_number": "2434579>Bf",
+    "Dr_Number": 777877.8,
+    "WK_ENDING": 44635,
+    "myWeekNumber": 1,
+    "AdjWeek": 44635,
+    "textbox72": 16,
+    "Login_ID": "othman",
+    "myName": "complete name ",
+    "job_title": "Designer",
+    "textbox64": "y ",
+    "ST": 5
+  },
+  {
+    "WO_number": "2434579>Bf",
+    "Dr_Number": 777878.8,
+    "WK_ENDING": 44636,
+    "myWeekNumber": 51,
+    "AdjWeek": 44636,
+    "textbox72": 17,
+    "Login_ID": "othman",
+    "myName": "complete name ",
+    "job_title": "Designer",
+    "textbox64": "y ",
+    "ST": 6
   }
 ]

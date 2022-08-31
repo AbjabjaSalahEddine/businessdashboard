@@ -1,0 +1,524 @@
+{
+  "W2": {
+    "salmane": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 10,
+      "Idle": 0,
+      "xR non Available": 30,
+      "Missed": 4
+    },
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 44,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 0
+    },
+    "hanan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 25,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 19
+    },
+    "othman": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 27,
+      "Missed": 17
+    },
+    "youssef": {
+      "Projects": 44,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 0
+    },
+    "id22": {
+      "Projects": 0,
+      "Holidays": 28,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 16
+    }
+  },
+  "W3": {
+    "salmane": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 20,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 24
+    },
+    "hanan": {
+      "Projects": 31,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 13
+    },
+    "fouad": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "othman": {
+      "Projects": 21,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 23
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 34,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 10
+    },
+    "id22": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    }
+  },
+  "W52": {
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "othman": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 22,
+      "xR non Available": 0,
+      "Missed": 22
+    }
+  },
+  "W4": {
+    "salmane": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hanan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "fouad": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "othman": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 20,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 24
+    },
+    "id22": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    }
+  },
+  "W5": {
+    "salmane": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hanan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "fouad": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "othman": {
+      "Projects": 17,
+      "Holidays": 20,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 7
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "id22": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    }
+  },
+  "W6": {
+    "salmane": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hanan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "fouad": {
+      "Projects": 0,
+      "Holidays": 29,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 15
+    },
+    "othman": {
+      "Projects": 13,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 31
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 20,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 24
+    },
+    "id22": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    }
+  },
+  "W7": {
+    "salmane": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hanan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "fouad": {
+      "Projects": 30,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 14
+    },
+    "othman": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 30,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 14
+    },
+    "id22": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    }
+  },
+  "W1": {
+    "ayoub": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hanan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "othman": {
+      "Projects": 5,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 39
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "id22": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    }
+  },
+  "W51": {
+    "abdelhadi": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "hanan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "fouad": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "othman": {
+      "Projects": 6,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 38
+    },
+    "hassan": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    },
+    "youssef": {
+      "Projects": 0,
+      "Holidays": 0,
+      "Training": 0,
+      "Idle": 0,
+      "xR non Available": 0,
+      "Missed": 44
+    }
+  }
+}

@@ -643,3 +643,15 @@ table
     table-layout: fixed;
     max-width: 100%;
 }
+
+.graphic-container {
+  min-height: 670px;
+  max-height: 670px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.charttitle{
+ margin: 11px 6px 0px 0px;
+ font-size: 20px;
+}

@@ -4,6 +4,7 @@ import DonutChart from '../components/DonutChart'
 import TreeChart from '../components/TreeChart'
 import LineChart from '../components/LineChart'
 import RadialChart from '../components/RadialChart'
+import ListHoursCharts from '../components/ListHoursCharts'
 import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router'
 
@@ -19,15 +20,25 @@ const Dashboard = () => {
     }else{
       setTobereturned(<>
         <Navbar/>
-        
-        <div className="row w-100" style={{zIndex:1}}>
-          <div className="col-lg-4 col-md-6 col-sm-12"> <DonutChart/> </div>
-          <div className="col-lg-4 col-md-6 col-sm-12"> <LineChart/> </div>
-          <div className="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
-          <div className="col-lg-4 col-md-6 col-sm-12"> <TreeChart/> </div>
-          <div className="col-lg-4 col-md-6 col-sm-12"> <RadialChart/> </div>
-          <div className="col-lg-4 col-md-6 col-sm-12"> <LineChart/> </div>
-      </div>
+        <div className="row w-100" >
+          <div className="col-lg-8"> 
+            <div className="row " >
+              <div className="row w-100">
+                <div className="col-md-6 col-sm-12"> <LineChart/> </div>
+                <div className="col-md-6 col-sm-12"> <DonutChart/> </div>
+              </div>
+              <div className="row w-100">
+                <div className="col-md-6 col-sm-12"> <TreeChart/> </div>
+                <div className="col-md-6 col-sm-12"> <RadialChart/> </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-lg-4"> 
+              <div style={{height:"70vh",width:"100%"}}>
+              <div > <ListHoursCharts/> </div>
+              </div>
+          </div>
+        </div>
         
         </>)
     }
