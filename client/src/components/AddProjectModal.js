@@ -56,7 +56,7 @@ const AddProjectModal = ({ open, onClose }) => {
             <div className='form' style={{paddingTop:'30px'}} >
                 <form onSubmit={e => handleSubmit(e)}>
                     <input type="text" onChange={(e)=> setBu(e.target.value)} style={{height:"40px",margin:'3px 0px'}}  placeholder='BU'/>
-                    <input type="text" onChange={(e)=> setWonumber(e.target.value)} style={{height:"40px",margin:'3px 0px'}} placeholder='Wo_Nmber' />
+                    <input type="text" onChange={(e)=> setWonumber(e.target.value)} style={{height:"40px",margin:'3px 0px'}} required="required"  placeholder='Wo_Nmber' />
                     <input type="text" onChange={(e)=> setProjectname(e.target.value)} style={{height:"40px",margin:'3px 0px'}} placeholder='Project Name' />
                     <input type="text" onChange={(e)=> setRequestor(e.target.value)} style={{height:"40px",margin:'3px 0px'}} placeholder='Requestor' />
                     <textarea  onChange={(e)=> setWodescription(e.target.value)} style={{resize:'none', height:"80px",margin:'3px 0px',alignItems:'start'}} placeholder='Wo_Description'></textarea>

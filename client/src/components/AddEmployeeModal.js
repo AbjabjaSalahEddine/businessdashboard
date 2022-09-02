@@ -62,8 +62,8 @@ const AddEmployeetModal = ({ open, onClose }) => {
             </div>
             <div style={{paddingTop:'30px 0px'}} >
                 <form id='f' className="form d-flex flex-column align-items-center justify-content-between" onSubmit={e => handleSubmit(e)}>
-                <input type="text" onChange={(e)=> setDrts_full_name(e.target.value)} style={{height:"40px",margin:'6px 0px',width:'70%'}}  placeholder='DRTS fullname'/>
-                    <input type="text" onChange={(e)=> setDrts_id(e.target.value)} style={{height:"40px",width:'70%',margin:'3px 0px'}} placeholder='DRTS loginID' />
+                <input type="text" onChange={(e)=> setDrts_full_name(e.target.value)} style={{height:"40px",margin:'6px 0px',width:'70%'}} required="required"  placeholder='DRTS fullname'/>
+                    <input type="text" onChange={(e)=> setDrts_id(e.target.value)} style={{height:"40px",width:'70%',margin:'3px 0px'}} required="required"  placeholder='DRTS loginID' />
                     <input type="text" onChange={(e)=> setSystem_id(e.target.value)} style={{height:"40px",margin:'6px 0px',width:'70%'}} placeholder='System ID' />
                     <input type="text" onChange={(e)=> setSystem_login(e.target.value)} style={{height:"40px",margin:'6px 0px',width:'70%'}} placeholder='System login' />
                     <input type="text" onChange={(e)=> setPosition(e.target.value)} style={{height:"40px",margin:'6px 0px',width:'70%'}} placeholder='Position' />
