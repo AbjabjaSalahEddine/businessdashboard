@@ -1,0 +1,42 @@
+{
+  "salmane": {
+    "exitweek": 33,
+    "integrationweek": 1
+  },
+  "ayoub": {
+    "exitweek": 48,
+    "integrationweek": -1
+  },
+  "abdelhadi": {
+    "exitweek": 53,
+    "integrationweek": 28
+  },
+  "h130028967": {
+    "exitweek": 35,
+    "integrationweek": 26
+  },
+  "hanan": {
+    "exitweek": 53,
+    "integrationweek": -1
+  },
+  "fouad": {
+    "exitweek": 53,
+    "integrationweek": 2
+  },
+  "othman": {
+    "exitweek": 53,
+    "integrationweek": -1
+  },
+  "hassan": {
+    "exitweek": 53,
+    "integrationweek": -1
+  },
+  "youssef": {
+    "exitweek": 53,
+    "integrationweek": -1
+  },
+  "id22": {
+    "exitweek": 34,
+    "integrationweek": 52
+  }
+}

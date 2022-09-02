@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react';
 import '../App.css'
 import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router'
+import ListEmployees from '../components/ListEmployees'
 
 
 const Employees = () => {
@@ -15,7 +16,14 @@ const Employees = () => {
     }else{
       setTobereturned(<>
         <Navbar/>
-        <p>MANAGE EMPLOYEES</p>
+        <br></br>
+        <div style={{textAlign:"center" , width:"100%"}}>
+            <p style={{fontSize:'30px'}}>MANAGE EMPLOYEES</p>
+        </div>
+        
+        <ListEmployees />
+        
+
         </>)
     }
   },[localStorage]);

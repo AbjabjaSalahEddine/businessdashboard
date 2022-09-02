@@ -2,7 +2,7 @@ import React, { useState,useEffect } from 'react';
 import '../App.css'
 import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router'
-
+import ListProjects from '../components/ListProjects'
 
 const Projects = () => {
   const navigate = useNavigate()
@@ -15,7 +15,12 @@ const Projects = () => {
     }else{
       setTobereturned(<>
         <Navbar/>
-        <p>MANAGE PROJECTS</p>
+        <br></br>
+        
+        
+        <ListProjects />
+        
+
         </>)
     }
   },[localStorage]);

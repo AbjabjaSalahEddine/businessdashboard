@@ -3,3 +3,6 @@
 
 #server
 /node_modules
+
+#heavy
+/executables

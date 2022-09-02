@@ -8,11 +8,14 @@ import Employees from './pages/Employees';
 import Projects from './pages/Projects';
 
 
+
+
 function App() {
   return (
     
     <Router>
       <Routes>
+        <Route exact path="" element={<SignIn/>}/>
         <Route exact path="/sign-in/" element={<SignIn/>}/>
         <Route exact path="/dashboard/" element={<Dashboard/>}/>
         <Route exact path="/changepassword/" element={<Changepassword/>}/>
@@ -21,6 +24,8 @@ function App() {
 
       </Routes>
     </Router>
+
+    
   );
 }
 
